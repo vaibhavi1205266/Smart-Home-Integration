@@ -21,7 +21,7 @@ export const Estimate = () => {
 
   const nextKitchenPage = () => {
     if(firstName) {
-      navigate('/getKitchenEstimate');
+      navigate('/kitchenEstimate');
     }
     else{
       toast.error("Please sign in to get kitchen estimate.");
