@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const SizePage = () => {
   return (
     <div className="flex flex-row items-center mt-4 ml-4 mr-10 mb-10">
