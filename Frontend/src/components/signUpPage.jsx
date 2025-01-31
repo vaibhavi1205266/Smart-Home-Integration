@@ -50,7 +50,7 @@ const SignUpPage = () => {
       passwordSchema.parse(formData);
       setErrors({});
 
-      const response = await fetch('http://localhost:8000/api/v1/users/register', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
