@@ -10,7 +10,7 @@ export const Navbar = () => {
   const { firstName, mobileNumber } = useUser();
   const navigate = useNavigate();
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const { email, userName, setUserName, setFirstName, setMobileNumber, setEmail } = useUser();
+  const { setUserName, setFirstName, setMobileNumber, setEmail } = useUser();
 
   const goToSignUpPage = () => {
     navigate("/abc");
