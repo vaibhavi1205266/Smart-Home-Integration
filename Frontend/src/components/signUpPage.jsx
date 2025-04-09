@@ -50,7 +50,7 @@ const SignUpPage = () => {
       passwordSchema.parse(formData);
       setErrors({});
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/users/register`, {
+      const response = await fetch(`https://67f6b8ac86e73e5327b6ccd9--mernfoodapp1.netlify.app/api/v1/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
