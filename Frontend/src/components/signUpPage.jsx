@@ -50,7 +50,7 @@ const SignUpPage = () => {
       passwordSchema.parse(formData);
       setErrors({});
 
-      const response = await fetch(`https://67f6b8ac86e73e5327b6ccd9--mernfoodapp1.netlify.app/api/v1/users/register`, {
+      const response = await fetch(`http://localhost:8000'/api/v1/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -105,7 +105,7 @@ const SignUpPage = () => {
 
   return (
     <div className="flex min-h-screen">
-      <div className="flex-1 flex flex-col justify-center items-center bg-sky-200">
+      <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
         <img src={image1} alt="Logo" />
       </div>
       <div className="flex-1 flex justify-center mt-20 bg-white">

@@ -122,43 +122,43 @@ const Desgin = () => {
         <Navbar />
         <Home Desgin="Bedroom"/>
         <hr className="mt-10 border-t-1 border-black" />
-        <div className="flex justify-center items-center m-12">
-          <h1 className="text-center text-3xl text-sky-400 font-semibold">Bed Room</h1>
+        <div className="flex justify-center items-center my-6 mx-6">
+          <h1 className=" mt-2  text-center text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xltext-3xl text-sky-400 font-semibold">Bed Room</h1>
         </div>
-        <div className="grid grid-cols-4 m-10 justify-center items-center">
+        <div className="grid grid-cols-4 mx-4 my-4 sm:mx-4 sm:my-10 md:mx-6 md:my-12 lg:mx-8 lg:my-14 xl:mx-8 xl:my-16  gap-4 justify-center items-center">
           {items1.map((item, index) => (
-            <div key={index} className="flex flex-col mb-10 items-center">
-              <img src={item.img} alt={`Img${index}`} className="w-80 h-80 text-justify rounded-md" />
+            <div key={index} className="flex flex-col mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-10 items-center">
+              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 text-justify rounded-md" />
             </div>
           ))}
         </div>
-        <div className="flex justify-center items-center m-12">
-          <h1 className="text-center text-3xl text-sky-400 font-semibold">Modular Kitchen Designs</h1>
+        <div className="flex justify-center items-center my-6 mx-6">
+          <h1 className="text-center text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-sky-400 font-semibold">Modular Kitchen Designs</h1>
         </div>
-        <div className="grid grid-cols-4 m-10 justify-center items-center">
+        <div className="grid grid-cols-4 mx-4 my-4 sm:mx-4 sm:my-10 md:mx-6 md:my-12 lg:mx-8 lg:my-14 xl:mx-8 xl:my-16  gap-4 justify-center items-center">
           {items2.map((item, index) => (
-            <div key={index} className="flex flex-col mb-10 items-center">
-              <img src={item.img} alt={`Img${index}`} className="w-80 h-80 text-justify rounded-md" />
+            <div key={index} className="flex flex-col mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-10 items-center">
+              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 text-justify rounded-md" />
             </div>
           ))}
         </div>
-        <div className="flex justify-center items-center m-12">
-          <h1 className="text-center text-3xl text-sky-400 font-semibold">Living Room Designs</h1>
+        <div className="flex justify-center items-center my-6 mx-6">
+          <h1 className="text-center text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-sky-400 font-semibold">Living Room Designs</h1>
         </div>
-        <div className="grid grid-cols-4 m-10 justify-center items-center">
+        <div className="grid grid-cols-4 mx-4 my-4 sm:mx-4 sm:my-10 md:mx-6 md:my-12 lg:mx-8 lg:my-14 xl:mx-8 xl:my-16  gap-4 justify-center items-center">
           {items3.map((item, index) => (
-            <div key={index} className="flex flex-col mb-10 items-center">
-              <img src={item.img} alt={`Img${index}`} className="w-80 h-80 text-justify rounded-md" />
+            <div key={index} className="flex flex-col mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-10 items-center">
+              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 rounded-md" />
             </div>
           ))}
         </div>
-        <div className="flex justify-center items-center m-12">
-          <h1 className="text-center text-3xl text-sky-400 font-semibold">Wardrobe Designs</h1>
+        <div className="flex justify-center items-center my-6 mx-6">
+          <h1 className="text-center text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-sky-400 font-semibold">Wardrobe Designs</h1>
         </div>
-        <div className="grid grid-cols-4 m-10 justify-center items-center">
+        <div className="grid grid-cols-4 mx-4 my-4 sm:mx-4 sm:my-10 md:mx-6 md:my-12 lg:mx-8 lg:my-14 xl:mx-8 xl:my-16  gap-4 justify-center items-center">
           {items4.map((item, index) => (
-            <div key={index} className="flex flex-col mb-10 items-center">
-              <img src={item.img} alt={`Img${index}`} className="w-80 h-80 text-justify rounded-md" />
+            <div key={index} className="flex flex-col mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-10 items-center">
+              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 text-justify rounded-md" />
             </div>
           ))}
         </div>

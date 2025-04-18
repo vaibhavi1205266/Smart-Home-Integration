@@ -17,7 +17,7 @@ export const Home = ({Desgin}) => {
   };
   return (
     <>
-        <div className='flex justify-center space-x-8 bg-white p-4'>
+        <div className='hidden lg:flex justify-center space-x-8 bg-white p-4'>
             <p 
               onClick={goToHomePage} 
               className={`text-black text-3xl font-medium font-poppins cursor-pointer hover:text-sky-500 ${Desgin === "Home" ? 'text-sky-400' : ''}`}

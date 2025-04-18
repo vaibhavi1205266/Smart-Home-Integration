@@ -7,7 +7,7 @@ export default defineConfig({
     proxy: {
       // Proxy API requests to the backend server
       '/api': {
-        target: 'https://67f6b8ac86e73e5327b6ccd9--mernfoodapp1.netlify.app',
+        target: 'http://localhost:8000',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, '') // Optional: Adjust the path if needed

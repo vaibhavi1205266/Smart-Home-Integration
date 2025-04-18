@@ -4,13 +4,16 @@ import icon1 from "../assets/Vector (4).png";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
 import UserMenu from "../pages/UserMenu";
-
+import HomeMobile from "../HomePage/HomeMobile";
+import { RxCross2 } from "react-icons/rx";
+import { FiAlignJustify } from "react-icons/fi";
 
 export const Navbar = () => {
-  const { firstName, mobileNumber } = useUser();
+  const { firstName, mobileNumber, setUserName, setFirstName, setMobileNumber, setEmail } = useUser();
   const navigate = useNavigate();
   const [showUserMenu, setShowUserMenu] = useState(false);
-  const { setUserName, setFirstName, setMobileNumber, setEmail } = useUser();
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const goToSignUpPage = () => {
     navigate("/abc");
@@ -21,17 +24,26 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
+    const checkScreenSize = () => {
+      setIsLargeScreen(window.innerWidth >= 1024); // lg breakpoint
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  useEffect(() => {
     const timer = setTimeout(() => {
       setShowUserMenu(false);
-    }
-    , 10000);
+    }, 10000);
     return () => clearTimeout(timer);
-  }, [toggleUserMenu])
+  }, [toggleUserMenu]);
 
   const getCapitalizedFirstName = (string) => {
     if (!string) return "";
-    const firstName = string.trim().split(" ")[0];
-    return firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    const first = string.trim().split(" ")[0];
+    return first.charAt(0).toUpperCase() + first.slice(1);
   };
 
   const handleLogout = () => {
@@ -43,47 +55,66 @@ export const Navbar = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("firstName");
     localStorage.removeItem("mobileNumber");
-    setShowUserMenu(false); // Hide the UserMenu after logout
+    setShowUserMenu(false);
     navigate("/home");
   };
 
   return (
-    <div className="flex justify-between h-24 bg-sky-200 shadow-xl border-2 shadow-gray-700">
-      <img className="h-14 w-24 mx-2 my-2 ml-12 mt-4" src={logo} alt="Logo" />
-      <div className="flex mx-4 my-4 gap-8">
-        <div className="flex h-8 w-auto gap-4 mt-4">
-          <img src={icon1} alt="icon1" />
-          {firstName ? (
-            <button
-              onClick={toggleUserMenu}
-              type="button"
-              className="text-black text-3xl font-poppins font-medium mr-12"
-            >
-              {getCapitalizedFirstName(firstName)}
-            </button>
-          ) : (
-            <button
-              onClick={goToSignUpPage}
-              type="button"
-              className="text-black text-3xl mb-6 font-poppins font-medium mr-12"
-            >
-              Sign In
-            </button>
-          )}
-        </div>
-        {/* UserMenu Dropdown */}
-        {showUserMenu && (
-          <div className="absolute top-24 right-8 z-50">
-            <UserMenu
-              isVisible={showUserMenu}
-              firstName={firstName}
-              mobileNumber={mobileNumber}
-              onLogout={handleLogout}
-              hideUserMenu={() => setShowUserMenu(false)} // Pass the callback
-            />
-          </div>
+    <div className="relative flex justify-between items-center h-24 bg-sky-200 shadow-xl border-2 shadow-gray-700 px-6">
+      <img className="h-14 w-24 mt-2" src={logo} alt="Logo" />
+      {/* Sign In / User Info */}
+      <div className="flex items-center">
+        {firstName ? (
+          <button
+            onClick={toggleUserMenu}
+            type="button"
+            className="flex items-center text-black text-xl font-poppins font-medium gap-2"
+          >
+            {isLargeScreen && <img src={icon1} alt="icon1" className="w-6 h-6" />}
+            {isLargeScreen && getCapitalizedFirstName(firstName)}
+          </button>
+          
+        ) : (
+          <button
+            onClick={goToSignUpPage}
+            type="button"
+            className="text-black text-xl font-poppins font-medium"
+          >
+            Sign In
+          </button>
         )}
+        {!isLargeScreen && firstName && (
+        // Mobile Menu Button
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="flex gap-4 text-black text-3xl font-bold px-2"
+        >
+          <img src={icon1} alt="icon1" className="w-6 h-6" />
+          {menuOpen ? <RxCross2 /> : <FiAlignJustify />}
+
+        </button>
+      )}
       </div>
+
+      {/* User Menu Dropdown */}
+      {showUserMenu && (
+        <div className="absolute top-24 right-8 z-50">
+          <UserMenu
+            isVisible={showUserMenu}
+            firstName={firstName}
+            mobileNumber={mobileNumber}
+            onLogout={handleLogout}
+            hideUserMenu={() => setShowUserMenu(false)}
+          />
+        </div>
+      )}
+
+      {/* Mobile Nav Popup */}
+      {menuOpen && !isLargeScreen && (
+        <div className="absolute top-24 left-1/2 transform -translate-x-1/2 z-40 w-[90%] max-w-md">
+          <HomeMobile Desgin="Design" firstName={firstName} mobileNumber={mobileNumber} setFirstName={setFirstName} setMobileNumber={setMobileNumber} setMenuOpen={setMenuOpen} />
+        </div>
+      )}
     </div>
   );
 };

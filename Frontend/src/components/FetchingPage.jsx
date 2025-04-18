@@ -12,8 +12,12 @@ const FetchingPage = () => {
         return () => clearTimeout(timer);
     }, [navigate]);
   return (
-    <div className='bg-sky-400 flex justify-center items-center h-screen w-screen'>
-        <img src={image1} alt=""/>
+    <div className="bg-sky-400 flex justify-center items-center h-screen w-screen px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20">
+      <img
+        src={image1}
+        alt="Smart Home"
+        className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 xl:w-1/4 object-contain"
+      />
     </div>
   )
 }

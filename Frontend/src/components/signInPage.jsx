@@ -28,7 +28,7 @@ const SignInPage = () => {
     : { mobileNumber : formData.contactInfo };
 
     try {
-      const response = await fetch(`https://67f6b8ac86e73e5327b6ccd9--mernfoodapp1.netlify.app/api/v1/users/login`, {
+      const response = await fetch(`http://localhost:8000/api/v1/users/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,9 +64,9 @@ const SignInPage = () => {
 
   return (
     <div className="flex min-h-screen">
-      <div className="flex-1 flex flex-col justify-center items-center bg-sky-200">
-        <img src={image1} alt="Logo" />
-      </div>
+          <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
+      <img src={image1} alt="Logo" />
+    </div>
       <div className="flex-1 flex justify-center bg-white">
         <form onSubmit={handleSubmit} className="w-80 mt-10">
           <div>
@@ -80,11 +80,11 @@ const SignInPage = () => {
               Log In
             </h2>
           </div>
-          <div className="mt-20">
+          <div className="mt-12">
             <h1 className="font-semibold text-2xl">Welcome</h1>
             <p className="text-xs mt-2">Please enter your details to proceed.</p>
           </div>
-          <div className="mb-4 mt-20">
+          <div className="mb-4 mt-6">
             <label
               htmlFor="contactInfo"
               className="block text-gray-700 font-medium mb-2 ml-2"

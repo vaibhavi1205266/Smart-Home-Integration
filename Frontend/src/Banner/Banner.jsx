@@ -14,9 +14,9 @@ export const Banner = () => {
   }, [images.length]);
 
   return (
-    <div className="relative flex justify-center items-center">
+    <div className="-mt-1 relative flex justify-center items-center">
       <img 
-        className='w-full h-[720px]' 
+        className='h-[400px] sm:h-[500px] xl:h-[700px] w-full object-fill rounded-lg shadow-lg' 
         src={images[currentIndex]} 
         alt="Banner" 
       />
