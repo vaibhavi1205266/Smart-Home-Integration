@@ -50,7 +50,7 @@ const SignUpPage = () => {
       passwordSchema.parse(formData);
       setErrors({});
 
-      const response = await fetch(`http://localhost:8000'/api/v1/users/register`, {
+      const response = await fetch(`https://smart-home-integration.onrender.com'/api/v1/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
