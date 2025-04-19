@@ -111,18 +111,18 @@ const GetStartedAPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-center gap-48 sm:gap-96 md:gap-[600px] lg:gap-[800px] mb-12 -mt-16">
+        <div className="flex justify-center gap-72 sm:gap-96 md:gap-[600px] lg:gap-[800px] mb-12 -mt-16">
           <button
             type="button"
             onClick={() => navigate(-1)} // Navigate back
-            className="px-10 py-2 border-white shadow-md shadow-gray-700 bg-white text-black font-medium font-montserrat rounded-lg"
+            className="px-6 py-1 md:px-10 md:py-2 border-white shadow-md shadow-gray-700 bg-white text-black font-medium font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg rounded-lg"
           >
             Back
           </button>
           <button
             type="button"
             onClick={handleNext} // Existing logic
-            className="px-10 py-2 border-white shadow-md shadow-gray-700 bg-sky-400 text-black font-medium font-montserrat rounded-lg"
+            className="px-6 py-2 md:px-10 md:py-2 border-white shadow-md shadow-gray-700 bg-sky-400 text-black font-medium font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg rounded-lg"
           >
             Next
           </button>

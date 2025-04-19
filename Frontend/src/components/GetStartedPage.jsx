@@ -112,13 +112,15 @@ const GetStartedPage = () => {
             </div>
           </div>
         </div>
+        <div className="flex justify-center gap-48 sm:gap-96 md:gap-[600px] lg:gap-[800px] mb-12 -mt-16">
         <button
             type="button"
             onClick={handleNext}
-            className="ml-80  mb-4 -mt-20 md:ml-10 lg:ml-28 xl:ml-64  px-10 py-2 border-white shadow-md shadow-gray-700 bg-sky-400 text-black font-medium font-montserrat rounded-lg "
+            className="ml-96  md:ml-10 lg:ml-28 xl:ml-64 px-4 py-1 md:px-10 md:py-2 border-white shadow-md shadow-gray-700 bg-sky-400 text-black font-medium font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg rounded-lg "
           >
             Next
         </button>
+        </div>
       </div>
       <Footer />
     </>

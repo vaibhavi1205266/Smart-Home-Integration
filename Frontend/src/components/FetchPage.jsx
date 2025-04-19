@@ -6,7 +6,7 @@ const FetchPage = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col pt-36 sm:pt-36 md:pt-36 lg:pt-0 lg:flex-row h-screen w-full">
+    <div className="flex flex-col  md:pt-36 lg:pt-0 lg:flex-row h-screen w-full">
       
       {/* Left Section (always visible) */}
       <div className="flex justify-center items-center w-full lg:w-1/2 lg:bg-cyan-100 p-6">
@@ -41,16 +41,16 @@ const FetchPage = () => {
       </div>
 
       {/* Mobile & Tablet: buttons below content */}
-      <div className="flex flex-col lg:hidden items-center justify-center mt-24 mb-6">
+      <div className="flex flex-col lg:hidden items-center justify-center gap-3 mt-6 mb-6">
         <button 
           onClick={() => navigate('/signin')} 
-          className="mb-4 bg-sky-300 hover:bg-sky-500 w-[250px] font-semibold font-poppins py-2 rounded-3xl"
+          className="mb-4 bg-sky-300 hover:bg-sky-500 w-[100px] font-semibold font-poppins py-2 rounded-3xl"
         >
           Log In
         </button>
         <button 
           onClick={() => navigate('/signup')} 
-          className="bg-sky-300 hover:bg-sky-500 w-[250px] py-2 font-semibold font-poppins rounded-3xl"
+          className="mb-12 bg-sky-300 hover:bg-sky-500 w-[100px] py-2 font-semibold font-poppins rounded-3xl"
         >
           Sign Up
         </button>

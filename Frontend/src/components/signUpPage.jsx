@@ -108,7 +108,7 @@ const SignUpPage = () => {
       <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
         <img src={image1} alt="Logo" />
       </div>
-      <div className="flex-1 flex justify-center mt-20 bg-white">
+      <div className="flex-1 flex justify-center mt-10 bg-white">
         <form onSubmit={handleSubmit} className="w-80">
           <div>
             <button
@@ -253,7 +253,7 @@ const SignUpPage = () => {
           {message && (
             <p className="text-center mt-4  text-green-500">{message}</p>
           )}
-          <p className="text-center ml-4 mt-10 text-[14px] text-gray-600">
+          <p className="text-center ml-4 mt-6 mb-8 text-[14px] text-gray-600">
             Already have an account?{' '}
             <span
               onClick={() => navigate('/signin')}

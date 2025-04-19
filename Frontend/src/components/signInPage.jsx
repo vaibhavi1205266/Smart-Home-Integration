@@ -138,7 +138,7 @@ const SignInPage = () => {
           {message && (
             <p className="text-center mt-4 text-green-500">{message}</p>
           )}
-          <p className="text-center ml-4 mt-10 text-[14px] text-gray-600">
+          <p className="text-center ml-4 mt-10 mb-8 text-[14px] text-gray-600">
             Don't have an account?{" "}
             <span
               onClick={() => navigate("/signup")}

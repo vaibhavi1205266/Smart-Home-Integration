@@ -122,7 +122,7 @@ const GetStartedBPage = () => {
           Below are your estimates to book a free online consultation
         </h1>
         <p className="font-sans text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium mb-8 text-center">Step 3 of 3</p>
-        <div className="ml-4 sm:ml-16 md:ml-32 lg:ml-64 xl-ml-96  mr-4 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl xl:h-[420px] mx-auto bg-white shadow-xl border-[1.25px] rounded-lg border-sky-400 mt-6 mb-32">
+        <div className="ml-4 sm:ml-16 md:ml-32 lg:ml-64 xl-ml-96  mr-2 max-w-xl sm:max-w-2xl md:max-w-3xl lg:max-w-4xl xl:max-w-5xl xl:h-[420px] mx-auto bg-white shadow-xl border-[1.25px] rounded-lg border-sky-400 mt-6 mb-32">
           <div className="flex justify-between items-center">
             <button
               onClick={() => handleTabChange("essential")}
