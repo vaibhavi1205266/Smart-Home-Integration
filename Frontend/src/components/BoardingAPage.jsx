@@ -28,7 +28,7 @@ const BoardingAPage = () => {
                     Thoughtfully designed for your unique lifestyle. Explore our curated collection of furniture and decor, where comfort meets style.
                 </p>
             </div>
-            <div className="flex justify-between mt-24 sm:mt-24 md:mt-32 lg:mt-28 xl:mt-28 relative sm:flex-row sm:items-end">
+            <div className="flex justify-between mt-20 sm:mt-24 md:mt-32 lg:mt-28 xl:mt-28 relative sm:flex-row sm:items-end">
             <div className="flex mt-2 ml-4 space-x-2 sm:mb-0 sm:absolute sm:bottom-10 sm:left-8">
                 <button  className="w-8 h-2 md:w-16 md:h-4 rounded-full bg-sky-400"></button>
                 <button  className="w-4 h-2 md:w-8 md:h-4 rounded-full bg-sky-200"></button>
