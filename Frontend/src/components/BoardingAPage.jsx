@@ -11,7 +11,7 @@ const BoardingAPage = () => {
                 <img
                     src={image1}
                     alt=""
-                    className="w-[650px] h-[400px] sm:w-[780px] sm:h-[500px] md:w-[1100px] md:h-[500px] lg:w-full lg:h-[500px] bg-blue-300 border-b-[14px] border-sky-300 rounded-b-3xl"
+                    className="w-[650px] h-[300px] sm:w-[780px] sm:h-[500px] md:w-[1100px] md:h-[500px] lg:w-full lg:h-[500px] bg-blue-300 border-b-[14px] border-sky-300 rounded-b-3xl"
                 />
                 <button
                     onClick={() => navigate('/abc')}
@@ -20,7 +20,7 @@ const BoardingAPage = () => {
                     Skip <img src={image2} alt="" className="mt-[5px] ml-1 h-4 w-4 sm:h-6 sm:w-5 sm:mt-1 md:w-6 lg:h-8 lg:w-8 " />
                 </button>
             </div>
-            <div className="flex justify-center flex-col items-center mt-16 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16">
+            <div className="flex justify-center flex-col items-center mt-28 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16">
                 <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-sky-400 font-poppins font-[550]">
                     Comfortable Space
                 </h1>
@@ -28,7 +28,7 @@ const BoardingAPage = () => {
                     Thoughtfully designed for your unique lifestyle. Explore our curated collection of furniture and decor, where comfort meets style.
                 </p>
             </div>
-            <div className="flex justify-between mt-16 sm:mt-24 md:mt-32 lg:mt-28 xl:mt-28 relative sm:flex-row sm:items-end">
+            <div className="flex justify-between mt-32 sm:mt-24 md:mt-32 lg:mt-28 xl:mt-28 relative sm:flex-row sm:items-end">
             <div className="flex mt-2 ml-4 space-x-2 sm:mb-0 sm:absolute sm:bottom-10 sm:left-8">
                 <button  className="w-8 h-2 md:w-16 md:h-4 rounded-full bg-sky-400"></button>
                 <button  className="w-4 h-2 md:w-8 md:h-4 rounded-full bg-sky-200"></button>
