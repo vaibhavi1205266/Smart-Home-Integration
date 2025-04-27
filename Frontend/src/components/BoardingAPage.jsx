@@ -7,7 +7,7 @@ const BoardingAPage = () => {
     const navigate = useNavigate();
   
     return (
-      <div className="min-h-screen flex flex-col justify-between">
+      <div className="min-h-[90vh] flex flex-col justify-between">
         {/* Image Section */}
         <div className="relative">
         <img 
@@ -27,31 +27,31 @@ const BoardingAPage = () => {
             Skip <img src={image2} alt="" className="ml-2 inline-block w-4 h-4 sm:w-6 sm:h-6" />
           </button>
         </div>
-  
-        {/* Text Section */}
-        <div className="flex flex-col items-center text-center px-6 mt-8">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-sky-400 font-semibold">
-            Comfortable Space
-          </h1>
-          <p className="mt-4 max-w-md sm:max-w-lg md:max-w-xl text-black text-base sm:text-lg lg:text-xl">
-            Thoughtfully designed for your unique lifestyle. Explore our curated collection of furniture and decor, where comfort meets style.
-          </p>
-        </div>
-  
-        {/* Bottom Controls */}
-        <div className="flex items-center justify-between px-8 mb-4">
-          <div className="flex space-x-2">
-            <div className="w-8 h-2 rounded-full bg-sky-400"></div>
-            <div className="w-4 h-2 rounded-full bg-sky-200"></div>
-            <div className="w-4 h-2 rounded-full bg-sky-200"></div>
-          </div>
-          <button
-            onClick={() => navigate('/boarding2')}
-            className="bg-sky-400 text-black font-semibold rounded-full px-6 py-2"
-          >
-            Next
-          </button>
-        </div>
+{/* Text Section */}
+<div className="flex flex-col items-center text-center px-6 mt-2">
+  <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-sky-400 font-semibold">
+    Comfortable Space
+  </h1>
+  <p className="mt-2 text-black text-base sm:text-lg lg:text-xl">
+    Thoughtfully designed for your unique lifestyle. Explore our curated collection of furniture and decor, where comfort meets style.
+  </p>
+</div>
+
+{/* Bottom Controls */}
+<div className="flex items-center justify-between px-8 mb-2">
+  <div className="flex space-x-2">
+    <div className="w-8 h-2 rounded-full bg-sky-400"></div>
+    <div className="w-4 h-2 rounded-full bg-sky-200"></div>
+    <div className="w-4 h-2 rounded-full bg-sky-200"></div>
+  </div>
+  <button
+    onClick={() => navigate('/boarding2')}
+    className="bg-sky-400 text-black font-semibold rounded-full px-6 py-2"
+  >
+    Next
+  </button>
+</div>
+
       </div>
     );
   };  
