@@ -20,7 +20,7 @@ const BoardingAPage = () => {
                     Skip <img src={image2} alt="" className="mt-[5px] ml-1 h-4 w-4 sm:h-6 sm:w-5 sm:mt-1 md:w-6 lg:h-8 lg:w-8 " />
                 </button>
             </div>
-            <div className="flex justify-center flex-col items-center mt-28 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16">
+            <div className="flex justify-center flex-col items-center mt-24 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-16">
                 <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-sky-400 font-poppins font-[550]">
                     Comfortable Space
                 </h1>
