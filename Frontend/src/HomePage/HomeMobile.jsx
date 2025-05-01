@@ -6,7 +6,7 @@ import { MdOutlineDesignServices } from "react-icons/md";
 import { TbArrowBigRightLines } from "react-icons/tb";
 import { FaUserAlt } from "react-icons/fa";
 
-const HomeMobile = ({ Desgin, setMenuOpen, firstName, mobileNumber, setFirstName, setMobileNumber }) => {
+const HomeMobile = ({ Desgin, setMenuOpen, firstName, mobileNumber, setPicture, setFirstName, setMobileNumber }) => {
   const navigate = useNavigate();
 
   const goToPage = (path) => {
@@ -17,6 +17,8 @@ const HomeMobile = ({ Desgin, setMenuOpen, firstName, mobileNumber, setFirstName
   const handleClick = () => {
     navigate('/nextpage', { replace: true });
   };
+
+  const pict = localStorage.getItem("picture");
 
   const menuItem = (label, icon, path, activeKey) => (
     <div
@@ -36,12 +38,15 @@ const HomeMobile = ({ Desgin, setMenuOpen, firstName, mobileNumber, setFirstName
       <div>
         {firstName && (
           <div className="flex items-center gap-3">
-          <div className="w-12 h-12 rounded-full bg-sky-400 flex items-center justify-center text-white text-lg font-bold">
-          <FaUserAlt />
+          <div className="w-8 h-8 rounded-full bg-sky-400 flex items-center justify-center text-white text-lg font-bold">
+            {pict ? (
+              <img src={pict} alt="Profile" className="w-full h-full rounded-full object-cover" />
+            ) : (
+              <FaUserAlt size={30} />
+            )}
           </div>
           <div>
             <p className="text-black font-semibold text-lg">{firstName}</p>
-            <p className="text-gray-600 text-sm">{mobileNumber}</p>
           </div>
         </div>
         )}
@@ -69,9 +74,10 @@ const HomeMobile = ({ Desgin, setMenuOpen, firstName, mobileNumber, setFirstName
       <div className="mt-6">
         <button
           onClick={() => {
-            setFirstName("");         // Clear firstName
-            setMobileNumber("");      // Clear mobileNumber
-            goToPage("/home");        // Navigate to home
+            setFirstName("");
+            setMobileNumber(""); 
+            setPicture("") ;  
+            goToPage("/home");   
           }}
           className="w-full bg-sky-400 text-white font-semibold py-3 rounded-lg text-lg flex items-center justify-center gap-2"
         >

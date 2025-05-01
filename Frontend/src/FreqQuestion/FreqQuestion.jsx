@@ -20,7 +20,7 @@ export const FreqQuestion = () => {
     <>
     <div className="w-full max-w-4xl mx-auto">
       <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold text-center my-6">Frequently Asked Questions</h2>
-      <div className="space-y-4">
+      <div className="space-y-4 ml-4">
         {faqData.map((question, index) => (
           <div key={index} className="border-b pb-4">
             <div

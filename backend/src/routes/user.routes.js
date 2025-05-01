@@ -1,5 +1,6 @@
 import { Router } from "express";
 import {registerUser, loginUser} from "../controllers/user.controller.js"
+import { signUpWithGoogle, forgotPassword, resetPassword, checkUser } from "../controllers/user.controller.js";
 // import { verifyJWT } from "../middlewares/auth.middleware.js";
 
 const router = Router()
@@ -7,6 +8,11 @@ const router = Router()
 router.route("/register").post(registerUser)
 
 router.route("/login").post(loginUser)
+// router.route("/google-login").post(googleLogin)
+router.route("/signup-with-google").post(signUpWithGoogle)
+router.route("/forgot-password").post(forgotPassword)
+router.route("/reset-password/:token").post(resetPassword)
+router.route("/check-user").post(checkUser)
 
 //secured routes
 // router.route("/logout").post(verifyJWT,  logoutUser)
