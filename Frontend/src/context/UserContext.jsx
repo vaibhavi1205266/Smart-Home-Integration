@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { use } from "react";
 
 const UserContext = createContext();
 
@@ -8,14 +9,17 @@ export const UserProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [userName, setUserName] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [picture, setPicture] = useState("");
 
   useEffect(() => {
     const storedUserName = localStorage.getItem("userName");
     const storedEmail = localStorage.getItem("email");
 
+
     if (storedUserName && storedEmail) {
       setUserName(storedUserName);
       setEmail(storedEmail);
+
     }
   }, []);
 
@@ -42,6 +46,22 @@ export const UserProvider = ({ children }) => {
       setMobileNumber(storedMobileNumber);
     }
   }, []);
+
+  useEffect(() => {
+    const storedPicture = localStorage.getItem("picture");
+    if (storedPicture) {
+      setPicture(storedPicture);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (picture) {
+      localStorage.setItem("picture", picture);
+    } else {
+      localStorage.removeItem("picture");
+    }
+  }
+  , [picture]);
 
   useEffect(() => {
     if (firstName) {
@@ -72,6 +92,8 @@ export const UserProvider = ({ children }) => {
         setEmail,
         isLoggedIn,
         setIsLoggedIn,
+        picture,
+        setPicture,
       }}
     >
       {children}

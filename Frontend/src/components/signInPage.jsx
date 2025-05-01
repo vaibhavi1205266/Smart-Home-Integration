@@ -4,15 +4,18 @@ import { useUser } from "../context/UserContext";
 import image1 from "../assets/DLN Logo.png";
 import image2 from "../assets/image3.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 const SignInPage = () => {
   const [formData, setFormData] = useState({
     contactInfo: "",
     password: "",
   });
-
   const [message, setMessage] = useState("");
-  const { setEmail, setIsLoggedIn, setFirstName, setMobileNumber } = useUser();
+  const [loginMessage, setLoginMessage] = useState("");
+  const { setEmail, setIsLoggedIn, setFirstName, setMobileNumber, setPicture } = useUser();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -36,6 +39,14 @@ const SignInPage = () => {
         body: JSON.stringify({ ...data, password: formData.password }),
       });
 
+      if(response.status === 404){
+        setLoginMessage("User not found");
+        return;
+      }
+      if(response.status === 401){
+        setLoginMessage("Check your password or sign in with Google");
+        return;
+      }
       if (response.ok) {
         const result = await response.json();
         const fullName = result.data.user.fullName;
@@ -45,14 +56,16 @@ const SignInPage = () => {
         setEmail(result.data.user.email);
         setIsLoggedIn(true);
         setFirstName(fullName);
-        setMobileNumber(mobileNumber)
-        setTimeout(() => navigate("/home"), 2000);
+        setMobileNumber(mobileNumber);
+        setTimeout(() => navigate("/home"), 1000);
       } else {
-        const error = await response.json();
-        setMessage(`Error: ${error.message}`);
+        const errorData = await response.json();
+        setLoginMessage(errorData.message || "Login failed. Please try again.");
+        console.error("Login error:", errorData);
       }
     } catch (err) {
-      setMessage(`Error: ${err.message}`);
+      console.error("Error during login:", err);
+      setLoginMessage("Login failed. Please try again.");
     }
   };
 
@@ -64,9 +77,9 @@ const SignInPage = () => {
 
   return (
     <div className="flex min-h-screen">
-          <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
-      <img src={image1} alt="Logo" />
-    </div>
+              <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
+          <img src={image1} alt="Logo" />
+        </div>
       <div className="flex-1 flex justify-center bg-white">
         <form onSubmit={handleSubmit} className="w-80 mt-10">
           <div>
@@ -138,6 +151,61 @@ const SignInPage = () => {
           {message && (
             <p className="text-center mt-4 text-green-500">{message}</p>
           )}
+          {loginMessage && (
+              <p style={{ color: "blue", marginTop: "1rem" }}>{loginMessage}</p>
+          )}
+          <GoogleOAuthProvider clientId="653140205065-u8ohloqk6ou4sinmqgs8b9uftdqcmeto.apps.googleusercontent.com">
+          <GoogleLogin
+  onSuccess={async (credentialResponse) => {
+    try {
+      const credentialResponseDecode = jwtDecode(credentialResponse.credential);
+      const { email, name, picture } = credentialResponseDecode;
+
+      // Check if user exists
+      const checkRes = await fetch("http://localhost:8000/api/v1/users/check-user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const checkData = await checkRes.json();
+
+      if (!checkData.exists) {
+        const res = await fetch("http://localhost:8000/api/v1/users/signup-with-google", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, name, picture }),
+        });
+
+        const result = await res.json();
+        if (res.ok) {
+          console.log("User registered successfully");
+        } else {
+          console.error("Error registering user:");
+        }
+      }
+
+      // Set state
+      setEmail(email);
+      setFirstName(name);
+      setPicture(picture); // ✅ Correct
+      setIsLoggedIn(true);
+
+      // Navigate after delay
+      setTimeout(() => navigate("/home"), 2000);
+    } catch (error) {
+      console.error("Error during Google login:", error);
+    }
+  }}
+  onError={() => {
+    console.log("Login Failed");
+  }}
+/>
+</GoogleOAuthProvider>
           <p className="text-center ml-4 mt-10 mb-8 text-[14px] text-gray-600">
             Don't have an account?{" "}
             <span

@@ -19,7 +19,6 @@ const BoardingAPage = () => {
     rounded-2xl
   " 
 />
-
           <button
             onClick={() => navigate('/abc')}
             className="absolute top-2 right-2 md:top-4 md:right-12 text-black px-4 py-2 text-md sm:text-lg md:text-xl lg:text-4xl"

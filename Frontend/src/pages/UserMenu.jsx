@@ -11,7 +11,7 @@ import icon9 from "../assets/Frame 897.png";
 import icon10 from "../assets/Frame 899.png";
 import { useNavigate } from "react-router-dom";
 
-const UserMenu = ({ firstName, mobileNumber, isVisible, onLogout, hideUserMenu }) => {
+const UserMenu = ({ firstName, mobileNumber, isVisible, onLogout, hideUserMenu, picture }) => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState(false);
 
@@ -29,15 +29,20 @@ const UserMenu = ({ firstName, mobileNumber, isVisible, onLogout, hideUserMenu }
 
   return (
     <div className="w-80 border border-sky-400 rounded-3xl shadow-lg bg-white text-black">
-      <div className="p-4 flex flex-row items-center border-b border-sky-400 gap-8">
+      <div className="p-4 flex flex-row items-center border-b border-sky-400 gap-4">
         <div className="ml-4">
           <span className="text-4xl">
-            <img src={icon1} alt="User Icon" />
+            {
+              picture ? (
+                <img src={picture} alt={icon1} className="w-12 h-12 rounded-full" />
+              ) : (
+                <img src={icon1} alt="icon1" className="w-6 h-6" />
+              )
+            }
           </span>
         </div>
         <div>
-          <h2 className="text-lg font-medium mt-2">{firstName}</h2>
-          <p className="text-gray-500 text-sm">{mobileNumber}</p>
+          <h2 className="text-2xl font-medium mt-1">{firstName}</h2>
         </div>
       </div>
 

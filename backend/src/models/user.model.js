@@ -19,16 +19,24 @@ const userSchema = new Schema(
         },
         mobileNumber: {
             type: String, // Use string instead of number to handle leading zeros
-            required: [true, 'Mobile number is required'],
-            unique: true,
         },
         password: {
             type: String,
-            required: [true, "Password is required"],
+            required: true,
+            select: false, // Do not save password by default, unless required
         },
         refreshToken: {
             type: String,
             select: false, // Do not save refreshToken by default, unless required
+        },
+        image:{
+            type: String,
+        },
+        resetPasswordToken: {
+            type: String,
+        },
+        resetPasswordExpire: {
+            type: Date,
         },
     },
     {

@@ -9,7 +9,7 @@ import { RxCross2 } from "react-icons/rx";
 import { FiAlignJustify } from "react-icons/fi";
 
 export const Navbar = () => {
-  const { firstName, mobileNumber, setUserName, setFirstName, setMobileNumber, setEmail } = useUser();
+  const { firstName, mobileNumber, setPicture, setUserName, setFirstName, setMobileNumber, setEmail } = useUser();
   const navigate = useNavigate();
   const [showUserMenu, setShowUserMenu] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -22,6 +22,9 @@ export const Navbar = () => {
   const toggleUserMenu = () => {
     setShowUserMenu(!showUserMenu);
   };
+
+  const pict = localStorage.getItem("picture");
+
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -51,6 +54,8 @@ export const Navbar = () => {
     setEmail("");
     setUserName("");
     setMobileNumber("");
+    setPicture("");
+    localStorage.removeItem("picture");
     localStorage.removeItem("userName");
     localStorage.removeItem("email");
     localStorage.removeItem("firstName");
@@ -62,7 +67,6 @@ export const Navbar = () => {
   return (
     <div className="relative flex justify-between items-center h-24 bg-sky-200 shadow-xl border-2 shadow-gray-700 px-6">
       <img className="h-14 w-24 mt-2" src={logo} alt="Logo" />
-      {/* Sign In / User Info */}
       <div className="flex items-center">
         {firstName ? (
           <button
@@ -70,7 +74,16 @@ export const Navbar = () => {
             type="button"
             className="flex items-center text-black text-xl font-poppins font-medium gap-2"
           >
-            {isLargeScreen && <img src={icon1} alt="icon1" className="w-6 h-6" />}
+            {isLargeScreen && 
+              <div className="">
+                {pict ? (
+                  <img src={pict} alt="Profile" className="w-8 h-8 rounded-full" />
+                ) : (
+                  <img src={icon1} alt="icon1" className="w-6 h-6" />
+                )}
+              </div>
+            }
+            {/* {!isLargeScreen && <img src={pict} alt="icon1" className="w-8 h-8 rounded-full" />} */}
             {isLargeScreen && getCapitalizedFirstName(firstName)}
           </button>
           
@@ -89,7 +102,10 @@ export const Navbar = () => {
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex gap-4 text-black text-3xl font-bold px-2"
         >
-          <img src={icon1} alt="icon1" className="w-6 h-6" />
+          {
+            pict ? <img src={pict} alt="icon1" className="w-8 h-8 rounded-full" /> 
+            : <img src={icon1} alt="icon1" className="w-6 h-6" />   
+          }
           {menuOpen ? <RxCross2 /> : <FiAlignJustify />}
 
         </button>
@@ -97,13 +113,14 @@ export const Navbar = () => {
       </div>
 
       {/* User Menu Dropdown */}
-      {showUserMenu && (
+      {showUserMenu && isLargeScreen && (
         <div className="absolute top-24 right-8 z-50">
           <UserMenu
             isVisible={showUserMenu}
             firstName={firstName}
             mobileNumber={mobileNumber}
             onLogout={handleLogout}
+            picture={pict}
             hideUserMenu={() => setShowUserMenu(false)}
           />
         </div>

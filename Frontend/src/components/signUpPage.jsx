@@ -1,9 +1,14 @@
+"use client"
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {jwtDecode} from "jwt-decode";
+import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
 import image1 from "../assets/DLN Logo.png"
 import { z } from 'zod';
 import image2 from "../assets/image3.png";
+import { useUser } from "../context/UserContext"; 
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
+import axios from "axios";
 
 const passwordSchema = z.object({
   fullName: z.string().min(1, 'Full name is required'),
@@ -35,6 +40,8 @@ const SignUpPage = () => {
     confirmPassword: '',
   });
 
+  const { setEmail, setIsLoggedIn, setFirstName, setMobileNumber, setPicture } = useUser();
+
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
@@ -49,7 +56,6 @@ const SignUpPage = () => {
     try {
       passwordSchema.parse(formData);
       setErrors({});
-
       const response = await fetch(`https://smart-home-integration.onrender.com'/api/v1/users/register`, {
         method: 'POST',
         headers: {
@@ -61,7 +67,7 @@ const SignUpPage = () => {
       if (response.ok) {
         const result = await response.json();
         console.log(result);
-        const fullName = result.data.firstName || 'Unknown User';
+        const fullName = result.data.fullName || 'Unknown User';
         setMessage(`User created successfully: ${fullName}`);
         setFormData({
           fullName: '',
@@ -253,6 +259,44 @@ const SignUpPage = () => {
           {message && (
             <p className="text-center mt-4  text-green-500">{message}</p>
           )}
+          <GoogleOAuthProvider clientId="653140205065-u8ohloqk6ou4sinmqgs8b9uftdqcmeto.apps.googleusercontent.com">
+  <GoogleLogin
+    onSuccess={async (credentialResponse) => {
+      try {
+        const decoded = jwtDecode(credentialResponse.credential);
+
+        const { email, name, picture } = decoded;
+
+        const res = await fetch("http://localhost:8000/api/v1/users/signup-with-google", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, name, picture }),
+        });
+         
+        const data = await res.json();
+
+        if (data.success) {
+          console.log("Google signup successful");
+          setEmail(email);
+          setFirstName(name);
+          setIsLoggedIn(true);
+          setMobileNumber(decoded.picture);
+          setPicture(picture);
+          setTimeout(() => navigate("/home"), 2000);
+        } else {
+          console.error("Signup failed:", data.message);
+        }
+      } catch (err) {
+        console.error("Signup/Login failed:", err);
+      }
+    }}
+    onError={() => {
+      console.log("Google Sign In Failed");
+    }}
+  />
+</GoogleOAuthProvider>
           <p className="text-center ml-4 mt-6 mb-8 text-[14px] text-gray-600">
             Already have an account?{' '}
             <span
