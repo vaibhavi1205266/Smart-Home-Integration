@@ -11,11 +11,14 @@ const BoardingAPage = () => {
         {/* Image Section */}
         <div className="relative">
         <img 
-        src={image1} 
-        alt="" 
-        className="
-          w-[550px] h-[350px] sm:w-[780px] sm:h-[500px] md:w-[1100px] md:h-[500px] lg:w-full lg:h-[500px] bg-blue-300 border-b-[14px] border-sky-300 rounded-b-3xl" 
-      />
+  src={image1} 
+  alt="" 
+  className="
+    w-[650px] h-[350px] sm:w-[780px] sm:h-[500px] md:w-[1100px] md:h-[500px] lg:w-full lg:h-[500px] bg-blue-300 border-b-[14px] border-sky-300 rounded-b-3xl
+    object-cover
+    rounded-2xl
+  " 
+/>
           <button
             onClick={() => navigate('/abc')}
             className="absolute top-2 right-2 md:top-4 md:right-12 text-black px-4 py-2 text-md sm:text-lg md:text-xl lg:text-4xl"
