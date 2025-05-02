@@ -18,7 +18,7 @@ export const Footer = () => {
             ))}
           </div>
         </div>
-        <div className="flex ml-8 sm:ml-14 md:ml-16 lg:ml-20 xl:ml-24 mt-4 sm:mt-16 md:mt-12 lg:mt-10 xl:mt-8 space-x-10 sm:space-x-12 md:space-x-16 lg:space-x-24 xl:space-x-32">
+        <div className="flex ml-4 sm:ml-14 md:ml-16 lg:ml-20 xl:ml-24 mt-4 sm:mt-16 md:mt-12 lg:mt-10 xl:mt-8 space-x-6 sm:space-x-12 md:space-x-16 lg:space-x-24 xl:space-x-32">
         <div className="text-center">
           <h2
             className=" font-montserrat font-semibold
@@ -46,7 +46,7 @@ export const Footer = () => {
           >
             Designs
           </h2>
-          <ul className="sm:md-2 md:ml-4 lg:ml-8 xl:ml-12 space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 text-left">
+          <ul className="ml-0 sm:ml-2 md:ml-4 lg:ml-8 xl:ml-12 space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 text-left">
             <li className="flex font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Bedroom</li>
             <li className="flex font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Modular Kitchen</li>
             <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Living Room</li>
