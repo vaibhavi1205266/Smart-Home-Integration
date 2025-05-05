@@ -9,7 +9,7 @@ const BoardingAPage = () => {
       <div className="min-h-[90vh] flex flex-col justify-between">
         {/* Image Section */}
         <div className="relative">
-        <img 
+        <img
         src="https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/naajhjwcyc7r1wvmntes.png"
         alt="" 
         className="
