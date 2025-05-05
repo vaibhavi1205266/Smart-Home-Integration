@@ -18,10 +18,25 @@ export const LivingRoom = () => {
           <h1 className="text-left text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-semibold">Living Room Designs</h1>
           <button onClick={() => navigate('/LivingRoom')} className="text-sky-400 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl ml-auto mr-4 sm:mr-6 md:mr-7 lg:mr-8  xl:mr-10 font-semibold">See All</button>
         </div>
-        <div className="grid grid-cols-4 gap-4 justify-center items-center">
+        <div className="grid grid-cols-2 gap-2 justify-center items-center md:hidden">
+          {items.slice(0, 2).map((item, index) => (
+            <div key={index} className="flex flex-col items-center">
+              <img
+                src={item.img}
+                alt={`Img${index}`}
+                className="object-cover w-56 h-40 sm:w-72 sm:h-60 rounded-md"
+              />
+            </div>
+          ))}
+        </div>
+        <div className="hidden md:grid grid-cols-4 gap-4 justify-center items-center">
           {items.map((item, index) => (
             <div key={index} className="flex flex-col items-center">
-              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 rounded-md" />
+              <img
+                src={item.img}
+                alt={`Img${index}`}
+                className="object-cover w-40 h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 rounded-md"
+              />
             </div>
           ))}
         </div>
