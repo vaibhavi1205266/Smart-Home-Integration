@@ -68,11 +68,6 @@ function App() {
         />
         <Route path='/' element= {<FetchingPage />} />
         <Route path='/abc' element= {<FetchPage />} />
-        <Route path='/boarding1' element= {<BoardingAPage />} />
-        <Route path='/boarding2' element= {<BoardingBPage />} />
-        <Route path='/boarding3' element= {<BoardingCPage />} />
-        <Route path='/signup' element={<SignUpPage />} />
-        <Route path='/signin' element={<SignInPage />} />
         <Route path='/AboutUs' element={<AboutUsPage />} />
         <Route path='/Services' element={<ServicesPage />} />
         <Route path='/Bedroom' element={<DesginApage />} />
@@ -87,6 +82,11 @@ function App() {
         <Route path='/getHomeEstimateB' element={<GetStartedBPage />} />
         <Route path='/getHomeEstimateC' element={<GetStartedCPage />} />
         <Route path='/kitchenEstimate' element={<KitchenPage />} />
+        <Route path='/boarding1' element= {<BoardingAPage />} />
+        <Route path='/boarding2' element= {<BoardingBPage />} />
+        <Route path='/boarding3' element= {<BoardingCPage />} />
+        <Route path='/signup' element={<SignUpPage />} />
+        <Route path='/signin' element={<SignInPage />} />
       </Routes>
     </>
   );

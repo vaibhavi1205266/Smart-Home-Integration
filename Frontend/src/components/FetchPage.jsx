@@ -1,5 +1,4 @@
 import React from 'react';
-import image1 from "../assets/DLN Logo.png";
 import { useNavigate } from 'react-router-dom';
 
 const FetchPage = () => {
@@ -12,7 +11,7 @@ const FetchPage = () => {
       <div className="flex justify-center items-center w-full lg:w-1/2 lg:bg-cyan-100 p-6">
         <div className="text-center">
           <img 
-            src={image1} 
+            src= "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/n7j8dzl8ny4tomc1ssia.png" 
             alt="DLN Logo" 
             className="mx-auto h-[200px] w-[300px] mb-4" 
           />

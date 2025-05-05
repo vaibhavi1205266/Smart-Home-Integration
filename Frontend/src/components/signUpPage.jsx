@@ -113,7 +113,7 @@ const SignUpPage = () => {
   return (
     <div className="flex min-h-screen">
       <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
-        <img src={image1} alt="Logo" />
+        <img src= "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/n7j8dzl8ny4tomc1ssia.png"  alt="Logo"  className='flex items-center h-48 w-72'/>
       </div>
       <div className="flex-1 flex justify-center mt-10 bg-white">
         <form onSubmit={handleSubmit} className="w-80">

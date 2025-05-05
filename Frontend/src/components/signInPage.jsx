@@ -17,6 +17,7 @@ const SignInPage = () => {
   const [loginMessage, setLoginMessage] = useState("");
   const { setEmail, setIsLoggedIn, setFirstName, setMobileNumber, setPicture } = useUser();
   const navigate = useNavigate();
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,7 +79,7 @@ const SignInPage = () => {
   return (
     <div className="flex min-h-screen">
               <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
-          <img src={image1} alt="Logo" />
+          <img src= "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/n7j8dzl8ny4tomc1ssia.png"  alt="Logo"  className="flex items-center h-48 w-72"/>
         </div>
       <div className="flex-1 flex justify-center bg-white">
         <form onSubmit={handleSubmit} className="w-80 mt-10">
@@ -154,7 +155,7 @@ const SignInPage = () => {
           {loginMessage && (
               <p style={{ color: "blue", marginTop: "1rem" }}>{loginMessage}</p>
           )}
-          <GoogleOAuthProvider clientId="653140205065-u8ohloqk6ou4sinmqgs8b9uftdqcmeto.apps.googleusercontent.com">
+          <GoogleOAuthProvider clientId = {clientId} >
           <GoogleLogin
   onSuccess={async (credentialResponse) => {
     try {

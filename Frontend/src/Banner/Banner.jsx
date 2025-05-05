@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Banner1 from '../assets/BannerPage.png';
-import Banner2 from '../assets/BannerPage2.png';
-import Banner3 from '../assets/BannerPage3.png';
 
 export const Banner = () => {
-  const images = [Banner1, Banner2, Banner3];
+  const image1 = "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/ebixxdj8jstsw9ipa3y8.png";
+  const image2 = "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/rdt9hsk76urnnzx2urjd.png";
+  const image3 = "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/dq6cry8keuvz0uijqnwv.png";
+  const images = [image1, image2, image3];
   const [currentIndex, setCurrentIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
