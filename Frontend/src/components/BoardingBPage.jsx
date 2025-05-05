@@ -1,5 +1,4 @@
 import React from 'react';
-import image1 from "../assets/image4.png";
 import image2 from "../assets/image3.png";
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +10,7 @@ const BoardingBPage = () => {
         {/* Image Section */}
         <div className="relative">
         <img 
-        src={image1} 
+        src= "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/gez04ap3dkx4viwovpaa.png"
         alt="" 
         className="
           w-[550px] h-[350px] sm:w-[780px] sm:h-[500px] md:w-[1100px] md:h-[500px] lg:w-full lg:h-[500px] bg-blue-300 border-b-[14px] border-sky-300 rounded-b-3xl" 

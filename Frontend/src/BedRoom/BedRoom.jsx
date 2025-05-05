@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import Maskgroup1 from '../assets/Maskgroup1.png';
-import Maskgroup2 from '../assets/Maskgroup2.png';
-import Maskgroup3 from '../assets/Maskgroup3.png';
-import Maskgroup4 from '../assets/Maskgroup4.png';
+import React from 'react';
 import { useNavigate } from "react-router-dom";
 
 const items = [
-  { img: Maskgroup1},
-  { img: Maskgroup2},
-  { img: Maskgroup3},
-  { img: Maskgroup4},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/vxealhxamyjdmworvdgh.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/eazfeb5v6chmzmxu5hed.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/pgelvpiqwdd5pb0uhypw.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/o6kxptjtkknpnm6ikd94.png"},
 ];
 
 export const BedRoom = () => {

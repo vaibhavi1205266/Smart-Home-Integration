@@ -6,10 +6,10 @@ import Maskgroup12 from '../assets/Maskgroup12.png';
 import { useNavigate } from 'react-router-dom';
 
 const items = [
-  { img: Maskgroup9},
-  { img: Maskgroup10},
-  { img: Maskgroup11},
-  { img: Maskgroup12},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/c84a9mw2w1ibrkr1bttp.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/dqebyhdgjg7u2ijvtcsk.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/c4zb1echh5pktje7iyrh.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/d0givotft0n8pllhjft7.png"},
 ];
 
 export const ModularKitchen = () => {

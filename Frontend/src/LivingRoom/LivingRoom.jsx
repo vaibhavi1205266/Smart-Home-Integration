@@ -1,15 +1,11 @@
 import React from 'react';
-import Maskgroup17 from '../assets/Maskgroup17.png';
-import Maskgroup18 from '../assets/Maskgroup18.png';
-import Maskgroup19 from '../assets/Maskgroup19.png';
-import Maskgroup20 from '../assets/Maskgroup20.png';
 import { useNavigate } from 'react-router-dom';
 
 const items = [
-  { img: Maskgroup17},
-  { img: Maskgroup18},
-  { img: Maskgroup19},
-  { img: Maskgroup20},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/kgwxeg0aaknmx5xz4pkm.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/nwrruwdsluah1243p1cd.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/cii9ucvbtl04oq2e1yyf.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/pchu8zm97qxgjtqolc52.png"},
 ];
 
 export const LivingRoom = () => {

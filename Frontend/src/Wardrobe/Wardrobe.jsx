@@ -6,10 +6,10 @@ import Maskgroup28 from '../assets/Maskgroup28.png';
 import { useNavigate } from 'react-router-dom';
 
 const items = [
-  { img: Maskgroup25},
-  { img: Maskgroup26},
-  { img: Maskgroup27},
-  { img: Maskgroup28},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/sdhfdttgqkv1jemze25r.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/atqgsosmyioushxaolnp.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/jmwbooakzhpvtykzwshv.png"},
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/thsxc8mpgdrpxxcyiii5.png"},
 ];
 
 export const Wardrobe = () => {

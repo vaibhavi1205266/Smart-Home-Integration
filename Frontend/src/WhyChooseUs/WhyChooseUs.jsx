@@ -1,18 +1,15 @@
 import React from 'react';
-import Group808 from '../assets/Skyline.png';
-import Group809 from '../assets/Calendar.png';
-import Group810 from '../assets/Moneybag.png';
 import Group811 from '../assets/Guarantee.png';
 import Group812 from '../assets/Discount.png';
 import Group813 from '../assets/Designer.png';
 
 const items = [
-  { img: Group808, text: "22 Cities" },
-  { img: Group809, text: "Delivery in 45 days" },
-  { img: Group810, text: "No Hidden Costs" },
-  { img: Group811, text: "Flat 10 Year Warranty" },
-  { img: Group812, text: "Easy EMIs" },
-  { img: Group813, text: "600+ In-House Designers" },
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/szezyzxu2pyizgkrrteg.png", text: "22 Cities" },
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/iukqua7o5zdlj4tcuhbs.png", text: "Delivery in 45 days" },
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/numgtz3sgbb8qyi2d67m.png", text: "No Hidden Costs" },
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/gpkmwnaulaewhaiypisl.png", text: "Flat 10 Year Warranty" },
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/oq4qrjony15ui1qfxy3j.png", text: "Easy EMIs" },	
+  { img: "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/ymqg62nfcpsgfbbsacxt.png", text: "600+ In-House Designers" },
 ];
 
 export const WhyChooseUs = () => {
