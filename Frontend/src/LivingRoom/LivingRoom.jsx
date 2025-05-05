@@ -24,7 +24,7 @@ export const LivingRoom = () => {
               <img
                 src={item.img}
                 alt={`Img${index}`}
-                className="object-cover w-56 h-40 sm:w-72 sm:h-60 rounded-md"
+                className="object-cover w-40 h-32 sm:w-72 sm:h-60 rounded-md"
               />
             </div>
           ))}
