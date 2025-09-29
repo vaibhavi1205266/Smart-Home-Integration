@@ -166,7 +166,7 @@ const SignInPage = () => {
           {loginMessage && (
             <p style={{ color: "blue", marginTop: "1rem" }}>{loginMessage}</p>
           )}
-          <GoogleOAuthProvider clientId="653140205065-u8ohloqk6ou4sinmqgs8b9uftdqcmeto.apps.googleusercontent.com">
+          <GoogleOAuthProvider clientId="185609465990-8tb6qk3k9cr4qtmoeqs8i462kiu1tb41.apps.googleusercontent.com">
             <GoogleLogin
               onSuccess={async (credentialResponse) => {
                 try {
