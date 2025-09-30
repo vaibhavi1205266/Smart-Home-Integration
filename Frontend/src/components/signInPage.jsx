@@ -177,7 +177,7 @@ const SignInPage = () => {
 
                   // Check if user exists
                   const checkRes = await fetch(
-                    "https://smart-home-integration.onrender.com/api/v1/users/check-user",
+                    `https://smart-home-integration.onrender.com/api/v1/users/check-user`,
                     {
                       method: "POST",
                       headers: {
@@ -191,7 +191,7 @@ const SignInPage = () => {
 
                   if (!checkData.exists) {
                     const res = await fetch(
-                      "https://smart-home-integration.onrender.com/api/v1/users/signup-with-google",
+                      `https://smart-home-integration.onrender.com/api/v1/users/signup-with-google`,
                       {
                         method: "POST",
                         headers: {
