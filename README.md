@@ -4,7 +4,7 @@ Smart Home Integration is a full-stack web application that enables users to man
 
 ## 🔗 Live Demo
 
-> https://smart-home-integration-website.onrender.com
+> https://smart-home-integration-awesome.onrender.com
 
 ## 🧠 Features
 
