@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../context/UserContext";
-import image1 from "../assets/DLN Logo.png";
+const logo = "/vs-logo.png";
 import image2 from "../assets/image3.png";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
+// import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
+// import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
 const SignInPage = () => {
@@ -46,7 +46,7 @@ const SignInPage = () => {
         return;
       }
       if (response.status === 401) {
-        setLoginMessage("Check your password or sign in with Google");
+        setLoginMessage("Check your password");
         return;
       }
       if (response.ok) {
@@ -59,7 +59,7 @@ const SignInPage = () => {
         setIsLoggedIn(true);
         setFirstName(fullName);
         setMobileNumber(mobileNumber);
-        setTimeout(() => navigate("/home"), 1000);
+        setTimeout(() => navigate("/"), 1000);
       } else {
         const errorData = await response.json();
         setLoginMessage(errorData.message || "Login failed. Please try again.");
@@ -81,9 +81,9 @@ const SignInPage = () => {
     <div className="flex min-h-screen">
       <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
         <img
-          src="https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/n7j8dzl8ny4tomc1ssia.png"
+          src={logo}
           alt="Logo"
-          className="flex items-center h-48 w-72"
+          className="flex items-center h-48 w-48"
         />
       </div>
       <div className="flex-1 flex justify-center bg-white">
@@ -166,66 +166,7 @@ const SignInPage = () => {
           {loginMessage && (
             <p style={{ color: "blue", marginTop: "1rem" }}>{loginMessage}</p>
           )}
-          <GoogleOAuthProvider clientId="185609465990-8tb6qk3k9cr4qtmoeqs8i462kiu1tb41.apps.googleusercontent.com">
-            <GoogleLogin
-              onSuccess={async (credentialResponse) => {
-                try {
-                  const credentialResponseDecode = jwtDecode(
-                    credentialResponse.credential
-                  );
-                  const { email, name, picture } = credentialResponseDecode;
-
-                  // Check if user exists
-                  const checkRes = await fetch(
-                    `https://smart-home-integration.onrender.com/api/v1/users/check-user`,
-                    {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                      body: JSON.stringify({ email }),
-                    }
-                  );
-
-                  const checkData = await checkRes.json();
-
-                  if (!checkData.exists) {
-                    const res = await fetch(
-                      `https://smart-home-integration.onrender.com/api/v1/users/signup-with-google`,
-                      {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({ email, name, picture }),
-                      }
-                    );
-
-                    const result = await res.json();
-                    if (res.ok) {
-                      console.log("User registered successfully");
-                    } else {
-                      console.error("Error registering user:");
-                    }
-                  }
-
-                  // Set state
-                  setEmail(email);
-                  setFirstName(name);
-                  setPicture(picture); // ✅ Correct
-                  setIsLoggedIn(true);
-
-                  // Navigate after delay
-                  setTimeout(() => navigate("/home"), 2000);
-                } catch (error) {
-                  console.error("Error during Google login:", error);
-                }
-              }}
-              onError={() => {
-                console.log("Login Failed");
-              }}
-            />
-          </GoogleOAuthProvider>
+          {/* Google Login removed */}
           <p className="text-center ml-4 mt-10 mb-8 text-[14px] text-gray-600">
             Don't have an account?{" "}
             <span

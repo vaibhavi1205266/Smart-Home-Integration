@@ -1,9 +1,9 @@
 "use client"
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {jwtDecode} from "jwt-decode";
-import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import image1 from "../assets/DLN Logo.png"
+// import {jwtDecode} from "jwt-decode";
+// import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+const logo = "/vs-logo.png";
 import { z } from 'zod';
 import image2 from "../assets/image3.png";
 import { useUser } from "../context/UserContext"; 
@@ -56,7 +56,7 @@ const SignUpPage = () => {
     try {
       passwordSchema.parse(formData);
       setErrors({});
-      const response = await fetch(`https://smart-home-integration.onrender.com/api/v1/users/register`, {
+      const response = await fetch(`http://localhost:8000/api/v1/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ const SignUpPage = () => {
   return (
     <div className="flex min-h-screen">
       <div className="hidden lg:flex-1 lg:flex flex-col justify-center items-center bg-sky-200">
-        <img src= "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/n7j8dzl8ny4tomc1ssia.png"  alt="Logo"  className='flex items-center h-48 w-72'/>
+        <img src={logo} alt="Logo" className='flex items-center h-48 w-48'/>
       </div>
       <div className="flex-1 flex justify-center mt-10 bg-white">
         <form onSubmit={handleSubmit} className="w-80">
@@ -259,44 +259,7 @@ const SignUpPage = () => {
           {message && (
             <p className="text-center mt-4  text-green-500">{message}</p>
           )}
-          <GoogleOAuthProvider clientId="185609465990-8tb6qk3k9cr4qtmoeqs8i462kiu1tb41.apps.googleusercontent.com">
-  <GoogleLogin
-    onSuccess={async (credentialResponse) => {
-      try {
-        const decoded = jwtDecode(credentialResponse.credential);
-
-        const { email, name, picture } = decoded;
-
-        const res = await fetch("https://smart-home-integration.onrender.com/api/v1/users/signup-with-google", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, name, picture }),
-        });
-         
-        const data = await res.json();
-
-        if (data.success) {
-          console.log("Google signup successful");
-          setEmail(email);
-          setFirstName(name);
-          setIsLoggedIn(true);
-          setMobileNumber(decoded.picture);
-          setPicture(picture);
-          setTimeout(() => navigate("/home"), 2000);
-        } else {
-          console.error("Signup failed:", data.message);
-        }
-      } catch (err) {
-        console.error("Signup/Login failed:", err);
-      }
-    }}
-    onError={() => {
-      console.log("Google Sign In Failed");
-    }}
-  />
-</GoogleOAuthProvider>
+          {/* Google Sign Up removed */}
           <p className="text-center ml-4 mt-6 mb-8 text-[14px] text-gray-600">
             Already have an account?{' '}
             <span

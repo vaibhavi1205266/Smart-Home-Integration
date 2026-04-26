@@ -1,7 +1,6 @@
 import React from 'react'
 import { Navbar } from '../Navbar/Navbar'
 import { Footer } from '../Footer/Footer'
-import { Home } from '../HomePage/HomePage'
 import Maskgroup1 from '../assets/Maskgroup1.png';
 import Maskgroup2 from '../assets/Maskgroup2.png';
 import Maskgroup3 from '../assets/Maskgroup3.png';
@@ -42,8 +41,7 @@ const DesginApage = () => {
   return (
     <>
         <Navbar />
-        <Home Desgin="Bedroom"/>
-        <hr className="mt-10 border-t-1 border-black" />
+        <hr className="mt-10 border-t-1 border-slate-200" />
         <div className="flex justify-center items-center m-12">
           <h1 className="text-center text-3xl text-sky-400 font-semibold">Bed Room</h1>
         </div>

@@ -1,7 +1,4 @@
 import React from 'react'
-import { Navbar } from '../Navbar/Navbar'
-import { Footer } from '../Footer/Footer'
-import { Home } from '../HomePage/HomePage'
 import Maskgroup1 from '../assets/Maskgroup1.png';
 import Maskgroup2 from '../assets/Maskgroup2.png';
 import Maskgroup3 from '../assets/Maskgroup3.png';
@@ -117,55 +114,70 @@ const items2 = [
   ];
 
 const Desgin = () => {
+  const sections = [
+    { title: "Elegant Bedrooms", items: items1 },
+    { title: "Modular Kitchens", items: items2 },
+    { title: "Luxury Living Rooms", items: items3 },
+    { title: "Modern Wardrobes", items: items4 },
+  ];
+
   return (
-    <>
-        <Navbar />
-        <Home Desgin="Bedroom"/>
-        <hr className="mt-10 border-t-1 border-black" />
-        <div className="flex justify-center items-center my-6 mx-6">
-          <h1 className=" mt-2  text-center text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xltext-3xl text-sky-400 font-semibold">Bed Room</h1>
+    <div className="bg-white">
+      
+      {/* Hero Section */}
+      <section className="relative py-24 bg-slate-900 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-sky-500/20 to-transparent" />
         </div>
-        <div className="grid grid-cols-4 mx-4 my-4 sm:mx-4 sm:my-10 md:mx-6 md:my-12 lg:mx-8 lg:my-14 xl:mx-8 xl:my-16  gap-4 justify-center items-center">
-          {items1.map((item, index) => (
-            <div key={index} className="flex flex-col mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-10 items-center">
-              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 text-justify rounded-md" />
+        <div className="max-w-7xl mx-auto px-6 lg:px-24 relative z-10 text-center animate-reveal">
+          <span className="inline-block px-4 py-1.5 mb-6 bg-white/10 text-sky-400 rounded-full font-outfit font-bold text-sm uppercase tracking-widest border border-white/10">
+            Portfolio
+          </span>
+          <h1 className="text-4xl md:text-6xl font-outfit font-extrabold text-white leading-tight mb-8">
+            Design <span className="text-sky-500">Masterpieces</span>
+          </h1>
+          <p className="text-lg md:text-xl text-slate-400 font-inter leading-relaxed max-w-2xl mx-auto">
+            Explore our curated collection of interior designs, where every corner tells a story of elegance and innovation.
+          </p>
+        </div>
+      </section>
+
+      {/* Gallery Sections */}
+      <div className="py-24 space-y-32">
+        {sections.map((section, sIndex) => (
+          <section key={section.title} className="max-w-7xl mx-auto px-6 lg:px-24">
+            <div className="flex items-center gap-8 mb-16 animate-reveal">
+              <h2 className="text-3xl md:text-4xl font-outfit font-extrabold text-slate-900 whitespace-nowrap">
+                {section.title}
+              </h2>
+              <div className="h-px bg-slate-200 w-full" />
             </div>
-          ))}
-        </div>
-        <div className="flex justify-center items-center my-6 mx-6">
-          <h1 className="text-center text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-sky-400 font-semibold">Modular Kitchen Designs</h1>
-        </div>
-        <div className="grid grid-cols-4 mx-4 my-4 sm:mx-4 sm:my-10 md:mx-6 md:my-12 lg:mx-8 lg:my-14 xl:mx-8 xl:my-16  gap-4 justify-center items-center">
-          {items2.map((item, index) => (
-            <div key={index} className="flex flex-col mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-10 items-center">
-              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 text-justify rounded-md" />
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+              {section.items.map((item, index) => (
+                <div 
+                  key={index} 
+                  className="group relative overflow-hidden rounded-3xl bg-slate-100 aspect-square animate-reveal shadow-sm hover:shadow-2xl transition-all duration-700"
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  <img 
+                    src={item.img} 
+                    alt={`${section.title} ${index + 1}`} 
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                    <p className="text-white font-outfit font-bold tracking-wide">View Project</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <div className="flex justify-center items-center my-6 mx-6">
-          <h1 className="text-center text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-sky-400 font-semibold">Living Room Designs</h1>
-        </div>
-        <div className="grid grid-cols-4 mx-4 my-4 sm:mx-4 sm:my-10 md:mx-6 md:my-12 lg:mx-8 lg:my-14 xl:mx-8 xl:my-16  gap-4 justify-center items-center">
-          {items3.map((item, index) => (
-            <div key={index} className="flex flex-col mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-10 items-center">
-              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 rounded-md" />
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center items-center my-6 mx-6">
-          <h1 className="text-center text-base  sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-sky-400 font-semibold">Wardrobe Designs</h1>
-        </div>
-        <div className="grid grid-cols-4 mx-4 my-4 sm:mx-4 sm:my-10 md:mx-6 md:my-12 lg:mx-8 lg:my-14 xl:mx-8 xl:my-16  gap-4 justify-center items-center">
-          {items4.map((item, index) => (
-            <div key={index} className="flex flex-col mb-4 sm:mb-6 md:mb-8 lg:mb-10 xl:mb-10 items-center">
-              <img src={item.img} alt={`Img${index}`} className="h-30 w-30 sm:w-40 sm:h-40 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-80 xl:h-80 text-justify rounded-md" />
-            </div>
-          ))}
-        </div>
-        <Footer />
-    </>
-  )
-}
+          </section>
+        ))}
+      </div>
+
+    </div>
+  );
+};
 
 export default Desgin
 

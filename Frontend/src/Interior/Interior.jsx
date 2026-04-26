@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ImgInterior from '../assets/ImgInterior1.png';
 
 export const Interior = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -18,66 +20,71 @@ export const Interior = () => {
   ];
 
   return (
-    <>
-      <div className='flex flex-col md:flex-row justify-between mt-16 px-4 gap-8 md:px-20'>
-        {/* Image Section */}
-        <div className='w-full md:w-1/2 flex justify-center'>
-          <img
-            src={ImgInterior}
-            alt="Interior"
-            className="w-[300px] sm:w-[300px] md:w-[300px] lg:w-[400px] xl:w-[600px] h-auto object-cover rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105"
-          />
-        </div>
-
-        {/* Text Section */}
-        <div className='w-full md:w-1/2'>
-          <h3 className='text-xs sm:text-base lg:text-lg xl:text-xl text-center font-semibold mb-12 mt-8 md:mt-16'>
-            Complete home interiors in 3 easy steps
-          </h3>
-
-          {/* Step Indicator with Labels */}
-          <div className="mt-4">
-            <div className="flex items-center justify-between">
-              {[1, 2, 3].map((num, index) => (
-                <React.Fragment key={num}>
-                  <div className="flex flex-col items-center">
-                    <div
-                      className={`flex items-center justify-center h-6 w-6 rounded-full border-2 text-sm font-semibold shadow transition-all duration-300 ${
-                        currentStep === num
-                          ? 'bg-sky-500 text-white border-sky-500'
-                          : 'bg-white text-black border-gray-400'
-                      }`}
-                    >
-                      {num}
-                    </div>
-                    <h2
-                      className={`mt-2 text-xs sm:text-sm md:text-base font-semibold transition-opacity duration-300 ${
-                        currentStep === num ? 'text-sky-500 opacity-100' : 'text-white opacity-30'
-                      }`}
-                    >
-                      {['Discover', 'Design', 'Completed'][index]}
-                    </h2>
-                  </div>
-
-                  {index !== 2 && (
-                    <div className="flex-1 h-6 md:h-8 border-t-2 border-dashed border-gray-800 px-2"></div>
-                  )}
-                </React.Fragment>
-              ))}
+    <section className="py-24 px-6 lg:px-24 bg-slate-900 theme-transition">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-16">
+          {/* Image Section */}
+          <div className="w-full lg:w-1/2 animate-reveal">
+            <div className="relative">
+              <div className="absolute -inset-4 brand-gradient opacity-10 rounded-3xl -z-10 blur-xl" />
+              <img
+                src={ImgInterior}
+                alt="Interior Design Process"
+                className="w-full h-[400px] lg:h-[600px] object-cover rounded-3xl shadow-2xl border border-white/5"
+              />
             </div>
           </div>
 
-          {/* Paragraphs */}
-          <p className='mt-6 text-center text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'>
-            {paraText[currentStep - 1][0]}
-          </p>
-          <p className='text-gray-700 text-center text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl'>
-            {paraText[currentStep - 1][1]}
-          </p>
+          {/* Text Section */}
+          <div className="w-full lg:w-1/2 animate-slide-up">
+            <h2 className="text-3xl md:text-5xl font-outfit font-extrabold text-white mb-6">
+              Your Dream Home in <span className="brand-gradient-text">3 Simple Steps</span>
+            </h2>
+            <p className="text-slate-400 font-inter text-lg mb-12">
+              We've streamlined the interior design process to make it effortless and enjoyable for you.
+            </p>
+
+            {/* Step Indicator */}
+            <div className="space-y-10">
+              {[
+                { title: 'Discover', desc: paraText[0].join(' ') },
+                { title: 'Design', desc: paraText[1].join(' ') },
+                { title: 'Completed', desc: paraText[2].join(' ') },
+              ].map((step, index) => (
+                <div 
+                  key={index} 
+                  className={`flex gap-6 transition-all duration-500 ${
+                    currentStep === index + 1 ? "opacity-100 translate-x-4" : "opacity-30"
+                  }`}
+                >
+                  <div className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-outfit font-bold text-xl ${
+                    currentStep === index + 1 ? "brand-gradient text-white shadow-lg shadow-brand-purple/30" : "bg-white/5 text-slate-500"
+                  }`}>
+                    {index + 1}
+                  </div>
+                  <div>
+                    <h3 className={`text-xl font-outfit font-bold mb-2 ${
+                      currentStep === index + 1 ? "text-white" : "text-slate-500"
+                    }`}>
+                      {step.title}
+                    </h3>
+                    <p className="text-slate-400 font-inter leading-relaxed">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <button 
+              onClick={() => navigate('/Contact')}
+              className="mt-16 px-10 py-4 brand-gradient text-white font-outfit font-bold rounded-full hover:opacity-90 transition-all shadow-xl shadow-brand-purple/20 active:scale-95"
+            >
+              Start Your Project
+            </button>
+          </div>
         </div>
       </div>
-
-      <hr className="border-t border-gray-300 mt-16 mx-6 md:mx-20" />
-    </>
+    </section>
   );
 };

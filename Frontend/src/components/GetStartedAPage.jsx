@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { z } from "zod";
 import { Navbar } from "../Navbar/Navbar";
-import { Home } from "../HomePage/HomePage";
 import { Footer } from "../Footer/Footer";
 import image1 from "../assets/imaging1.png";
 
@@ -51,8 +50,7 @@ const GetStartedAPage = () => {
   return (
     <>
       <Navbar />
-      <Home Desgin = "Home"/>
-      <hr className="mt-10 border-t-1 border-black" />
+      <hr className="mt-10 border-t-1 border-slate-200" />
       <div>
         <h1 className="font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-14 mb-2 text-center">Tell Us What You Need</h1>
         <p className="font-sans text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium mb-8 text-center">Step 2 of 3</p>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Navbar } from '../Navbar/Navbar';
-import { Home } from '../HomePage/HomePage';
 import { Footer } from '../Footer/Footer';
 import image1 from "../assets/kitchenImage.png";
 import image2 from "../assets/Mask group (20).png";
@@ -56,8 +55,7 @@ const KitchenPage = () => {
   return (
     <>
       <Navbar />
-      <Home Desgin="Home" />
-      <hr className="mt-10 border-t-1 border-black" />
+      <hr className="mt-10 border-t-1 border-slate-200" />
       <div>
         <h1 className="font-sans text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-medium mt-6 sm:mt-8 md:mt-10 lg:mt-12 xl:mt-14 mb-2 text-center">Let's Get Started</h1>
         <p className="font-sans text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl font-medium mb-8 text-center">Step 1 of 1</p>

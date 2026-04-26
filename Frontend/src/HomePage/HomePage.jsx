@@ -16,34 +16,28 @@ export const Home = ({Desgin}) => {
     navigate('/Contact');
   };
   return (
-    <>
-        <div className='hidden lg:flex justify-center space-x-8 bg-white p-4'>
-            <p 
-              onClick={goToHomePage} 
-              className={`text-black text-3xl font-medium font-poppins cursor-pointer hover:text-sky-500 ${Desgin === "Home" ? 'text-sky-400' : ''}`}
-            >
-              Home
-            </p>
-            <p 
-              onClick={goToAboutUs} 
-              className={`text-black text-3xl font-medium font-poppins cursor-pointer hover:text-sky-500 ${Desgin === "aboutus" ? 'text-sky-400' : ''}`}
-            >
-              About Us
-            </p>
-            <p 
-              onClick={goToDesignPage} 
-              className={`text-black text-3xl font-medium font-poppins cursor-pointer hover:text-sky-500 ${Desgin === "Bedroom" ? 'text-sky-400' : ''}`}
-            >
-              Designs
-            </p>
-            <p 
-              onClick={goToContactPage} 
-              className={`text-black text-3xl font-medium font-poppins cursor-pointer hover:text-sky-500 ${Desgin === "contactus" ? 'text-sky-400' : ''}`}
-            >
-              Contact Us
-            </p>
-        </div>
-    </>
-  )
-}
+    <div className="hidden lg:flex justify-center bg-white/50 backdrop-blur-sm border-b border-slate-100 py-3 sticky top-20 z-40">
+      <div className="flex bg-slate-100/50 p-1.5 rounded-full gap-1 shadow-inner">
+        {[
+          { name: "Home", path: "/", key: "Home", action: goToHomePage },
+          { name: "About Us", path: "/AboutUs", key: "aboutus", action: goToAboutUs },
+          { name: "Designs", path: "/Design", key: "Bedroom", action: goToDesignPage },
+          { name: "Contact Us", path: "/Contact", key: "contactus", action: goToContactPage },
+        ].map((item) => (
+          <button
+            key={item.key}
+            onClick={item.action}
+            className={`px-8 py-2.5 rounded-full font-outfit font-semibold transition-all duration-300 ${
+              Desgin === item.key
+                ? "bg-white text-sky-600 shadow-md scale-105"
+                : "text-slate-600 hover:text-slate-900 hover:bg-white/50"
+            }`}
+          >
+            {item.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
 

@@ -30,34 +30,58 @@ export const Estimate = () => {
 
   
   return (
-    <>
-      <h1 className='text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-center mt-16'>Get an estimate for your home.</h1>
-      <p className='text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-center mt-2'>Calculate the cost of doing up your home interiors now.</p>
-      <div className="flex flex-col md:flex-row justify-center mt-8 md:space-x-8 space-y-6 md:space-y-0 px-4 md:px-16">
-  {/* Full Home Interiors Box */}
-  <div className="bg-white text-black p-6 rounded-lg shadow-md border-2 shadow-slate-700 w-full md:w-1/3">
-    <div className="flex justify-between items-center">
-      <img src={Icon1} alt="Full Home Icon" width="40" height="40" className='ml-4' />
-      <img src={Icon2} alt="Calculator Icon" width="40" height="40" />
-    </div>
-    <h2 className="mt-4 text-lg font-semibold">Full Home Interiors</h2>
-    <p className="mt-2 text-sm text-left">Get the estimate price for your</p>
-    <p className="mt-2 text-sm text-left">Full home interiors.</p> 
-    <button onClick={nextHomePage} className="mt-4 bg-sky-500 text-white px-4 py-2 rounded">Get Free Estimate</button>
-  </div>
+    <section className="py-24 px-6 lg:px-24 bg-slate-900 theme-transition overflow-hidden relative">
+      <div className="absolute top-0 left-0 w-full h-full bg-sky-500/5 -skew-y-6 transform translate-y-1/2" />
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16 animate-reveal">
+          <h2 className="text-3xl md:text-5xl font-outfit font-extrabold text-white mb-4">
+            Instant <span className="brand-gradient-text">Estimates</span>
+          </h2>
+          <p className="text-slate-400 font-inter text-lg">Calculate the cost of your dream home interiors in seconds.</p>
+        </div>
 
-  {/* Kitchen Box */}
-  <div className="bg-white text-black p-6 rounded-lg shadow-md border-2 shadow-slate-700 w-full md:w-1/3">
-    <div className="flex justify-between items-center">
-      <img src={Icon3} alt="Kitchen Icon" width="40" height="40" className='ml-4' />
-      <img src={Icon2} alt="Calculator Icon" width="40" height="40" />
-    </div>
-    <h2 className="mt-4 text-lg font-semibold">Kitchen</h2>
-    <p className="mt-2 text-sm text-left">Get costing for your</p>
-    <p className="mt-2 text-sm text-left">Kitchen interiors.</p> 
-    <button onClick={nextKitchenPage} className="mt-4 bg-sky-500 text-white px-4 py-2 rounded">Get Free Estimate</button>
-  </div>
-</div>
-    </>
+        <div className="flex flex-col md:flex-row justify-center gap-8 lg:gap-12">
+          {/* Full Home Interiors Card */}
+          <div className="group bg-white/5 backdrop-blur-sm p-10 rounded-3xl shadow-sm border border-white/10 hover:border-brand-purple/50 hover:bg-white/10 transition-all duration-500 animate-reveal flex-1 max-w-md">
+            <div className="flex justify-between items-start mb-8">
+              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform border border-white/10">
+                <img src={Icon1} alt="Full Home" className="w-10 h-10 object-contain brightness-0 invert" />
+              </div>
+              <img src={Icon2} alt="Calculator" className="w-8 h-8 opacity-40 brightness-0 invert" />
+            </div>
+            <h3 className="text-2xl font-outfit font-bold text-white mb-4">Full Home Interiors</h3>
+            <p className="text-slate-400 font-inter mb-8 leading-relaxed">
+              Plan your entire space with a comprehensive cost breakdown for every room.
+            </p>
+            <button 
+              onClick={nextHomePage} 
+              className="w-full py-4 brand-gradient text-white font-outfit font-bold rounded-2xl hover:opacity-90 transition-all shadow-lg shadow-brand-purple/20 active:scale-95"
+            >
+              Get Free Estimate
+            </button>
+          </div>
+
+          {/* Kitchen Card */}
+          <div className="group bg-white/5 backdrop-blur-sm p-10 rounded-3xl shadow-sm border border-white/10 hover:border-brand-purple/50 hover:bg-white/10 transition-all duration-500 animate-reveal flex-1 max-w-md" style={{ animationDelay: '200ms' }}>
+            <div className="flex justify-between items-start mb-8">
+              <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform border border-white/10">
+                <img src={Icon3} alt="Kitchen" className="w-10 h-10 object-contain brightness-0 invert" />
+              </div>
+              <img src={Icon2} alt="Calculator" className="w-8 h-8 opacity-40 brightness-0 invert" />
+            </div>
+            <h3 className="text-2xl font-outfit font-bold text-white mb-4">Smart Kitchen</h3>
+            <p className="text-slate-400 font-inter mb-8 leading-relaxed">
+              Focused costing for your modular kitchen, from cabinets to high-tech appliances.
+            </p>
+            <button 
+              onClick={nextKitchenPage} 
+              className="w-full py-4 brand-gradient text-white font-outfit font-bold rounded-2xl hover:opacity-90 transition-all shadow-lg shadow-brand-purple/20 active:scale-95"
+            >
+              Get Free Estimate
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
   );
-}
+};

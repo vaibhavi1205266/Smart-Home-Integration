@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+const logo = "/vs-logo.png";
 
 const FetchPage = () => {
   const navigate = useNavigate();
@@ -11,12 +12,12 @@ const FetchPage = () => {
       <div className="flex justify-center items-center w-full lg:w-1/2 lg:bg-cyan-100 p-6">
         <div className="text-center">
           <img 
-            src= "https://res.cloudinary.com/dh4cgdjhh/image/upload/v1746338974/n7j8dzl8ny4tomc1ssia.png" 
-            alt="DLN Logo" 
-            className="mx-auto h-[200px] w-[300px] mb-4" 
+            src={logo} 
+            alt="VS Logo" 
+            className="mx-auto h-[200px] w-[200px] mb-4" 
           />
           <p className="max-w-[500px] mx-auto leading-relaxed text-center">
-            At DLN Smart Home Integration, we believe your home should be more than just a place to live—it should be a space that enriches your lifestyle. Our team combines cutting-edge technology with modern design to create smart homes that are functional, beautiful, and energy-efficient.
+            At VS Smart Home Integration, we believe your home should be more than just a place to live—it should be a space that enriches your lifestyle. Our team combines cutting-edge technology with modern design to create smart homes that are functional, beautiful, and energy-efficient.
           </p>
         </div>
       </div>

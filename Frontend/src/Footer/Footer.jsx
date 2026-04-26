@@ -1,79 +1,96 @@
-import React from 'react';
-import logo from '../../public/logo.png';
+import { useNavigate } from 'react-router-dom';
+import { FaInstagram, FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+const logo = "/vs-logo.png";
 
 export const Footer = () => {
+  const navigate = useNavigate();
   const totalCircles = 5;
 
   return (
-    <footer className="bg-sky-200 text-black font-poppins">
-      <div className="container flex justify-between items-center">
-        <div className="flex flex-col items-center mx-10 sm:mx-12 md:mx-14 lg:mx-16 xl:mx-16">
-          <img className="h-12 w-16 sm:h-16 sm:w-24 md:h-20 md:w-32 lg:h-20 lg:w-40 xl:h-24 xl:w-48 xl:mx-2 xl:my-2" src={logo} alt="Logo" />
-          <div className="flex space-x-1 sm:space-x-1 md:space-x-2 lg:space-x-2 xl:space-x-3 mt-1 sm:mt-2 md:mt-3 lg:mt-4  xl:mt-5">
-            {Array.from({ length: totalCircles }).map((_, index) => (
-              <span
-                key={index}
-                className={`w-2 h-2 sm:w-4 sm:h-4 md:w-6 md:h-6 lg:w-8 lg:h-8 xl:w-8 xl:h-8 rounded-full inline-block transition-colors duration-300 bg-gray-400`}
-              ></span>
+    <footer className="bg-slate-900 text-slate-300 font-inter py-20 px-6 lg:px-24">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        {/* Brand Section */}
+        <div className="space-y-6">
+          <div className="flex items-center gap-2 cursor-pointer group" onClick={() => navigate("/")}>
+            <img className="h-10 w-auto brightness-0 invert logo-glow group-hover:scale-110 transition-transform" src={logo} alt="Logo" />
+            <span className="font-outfit font-bold text-2xl text-white tracking-tight">VAIBHAVI & SHRISHTY</span>
+          </div>
+          <p className="text-slate-400 leading-relaxed">
+            Revolutionizing modern living through seamless smart home integration and bespoke interior designs.
+          </p>
+          <div className="flex gap-4">
+            {[
+              { icon: <FaInstagram />, link: "https://instagram.com" },
+              { icon: <FaFacebookF />, link: "https://facebook.com" },
+              { icon: <FaLinkedinIn />, link: "https://linkedin.com" },
+              { icon: <FaTwitter />, link: "https://twitter.com" },
+            ].map((social, i) => (
+              <a 
+                key={i} 
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:brand-gradient hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-lg"
+              >
+                {social.icon}
+              </a>
             ))}
           </div>
         </div>
-        <div className="flex ml-2 sm:ml-14 md:ml-16 lg:ml-20 xl:ml-24 mt-4 sm:mt-16 md:mt-12 lg:mt-10 xl:mt-8 space-x-6 sm:space-x-12 md:space-x-16 lg:space-x-24 xl:space-x-32">
+
+        {/* Quick Links */}
         <div>
-          <h2
-            className=" font-montserrat font-semibold
-              text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
-              mb-2 sm:mb-4 md:mb-6 lg:mb-8 xl:mb-8
-              text-black break-words
-            "
-          >
-            Quick<br className='md:hidden'/> Access
-          </h2>
-          <ul className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 text-left">
-            <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Home</li>
-            <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">About Us</li>
-            <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Designs</li>
-            <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Contact Us</li>
+          <h3 className="font-outfit font-bold text-lg text-white mb-8 uppercase tracking-widest text-sm">Quick Access</h3>
+          <ul className="space-y-4">
+            {['Home', 'About Us', 'Designs', 'Contact Us'].map((link) => (
+              <li key={link}>
+                <a href={link === 'Home' ? '/' : `/${link.replace(' ', '')}`} className="hover:brand-gradient-text transition-colors duration-300">{link}</a>
+              </li>
+            ))}
           </ul>
         </div>
-        <div className="">
-          <h2
-            className="font-montserrat font-semibold
-              text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
-              mb-2 sm:mb-4 md:mb-6 lg:mb-8 xl:mb-8
-              text-black
-            "
-          >
-            Designs
-          </h2>
-          <ul className="space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 ">
-            <li className="flex font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Bedroom</li>
-            <li className="flex font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Modular <br className='md:hidden'/> Kitchen</li>
-            <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Living <br className='md:hidden'/> Room</li>
-            <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">Wardrobe</li>
+
+        {/* Categories */}
+        <div>
+          <h3 className="font-outfit font-bold text-lg text-white mb-8 uppercase tracking-widest text-sm">Designs</h3>
+          <ul className="space-y-4">
+            {['Bedroom', 'Modular Kitchen', 'Living Room', 'Wardrobe'].map((link) => (
+              <li key={link}>
+                <a href={`/${link.replace(' ', '')}`} className="hover:brand-gradient-text transition-colors duration-300">{link}</a>
+              </li>
+            ))}
           </ul>
         </div>
-        <div className='pr-3'>
-        <h2
-            className="font-montserrat font-semibold
-              text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl
-              mb-2 sm:mb-4 md:mb-6 lg:mb-8 xl:mb-8
-              text-black
-            "
-          >
-            Helpline
-          </h2>
-          <ul className="space-y-1 sm:space-y-3 md:space-y-4 lg:space-y-5 xl:space-y-6 text-left">
-            <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">9548685176</li>
-            <li className="font-montserrat text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg leading-[14px]">deveshkumar<br className='md:hidden'/>8114@gmail.com</li>
+
+        {/* Contact */}
+        <div>
+          <h3 className="font-outfit font-bold text-lg text-white mb-8 uppercase tracking-widest text-sm">Helpline</h3>
+          <ul className="space-y-6">
+            <li className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg brand-gradient opacity-20 flex items-center justify-center text-white">
+                ☏
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 uppercase font-bold">Call Us</p>
+                <p className="text-white font-outfit font-bold">+91 9545678756</p>
+              </div>
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg brand-gradient opacity-20 flex items-center justify-center text-white">
+                ✉
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 uppercase font-bold">Email</p>
+                <p className="text-white font-outfit font-bold">vaibhavi@gmail.com</p>
+              </div>
+            </li>
           </ul>
-        </div>
         </div>
       </div>
-      <div className="container mx-auto mt-12 flex justify-center items-center pb-8">
-        <p className="text-xs sm:text-xs md:text-sm lg:text-sm xl:text-sm text-black font-montserrat">
-          Designed by Devesh Kumar, Developed by Nizam
-        </p>
+
+      <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+        <p>© 2026 Vaibhavi & Shrishty Integration. All rights reserved.</p>
+        <p className="font-outfit">Designed with ♥ by <span className="text-white font-bold">Vaibhavi & Shrishty</span></p>
       </div>
     </footer>
   );

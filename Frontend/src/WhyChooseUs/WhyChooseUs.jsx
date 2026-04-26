@@ -14,16 +14,35 @@ const items = [
 
 export const WhyChooseUs = () => {
   return (
-    <>
-      <h1 className="text-center text-md sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold mb-4 sm:mb-5 md:mb-7 lg:mb-12 xl:mb-16 mt-8 sm:mt-8 md:mt-12 lg:mt-16 xl:mt-24">Why Choose Us</h1>
-      <div className="grid grid-cols-6 sm:grid-cols-6 lg:grid-cols-6 xl:grid-cols-6 justify-center items-center">
-        {items.map((item, index) => (
-          <div key={index} className="flex flex-col items-center mr-2 sm:mr-4 md:mr-6 lg:mr-8 xl:mr-10">
-            <img src={item.img} alt={`Img${index}`} className="h-12 w-16 xl:h-32 xl:w-32" />
-            <p className="mt-2 sm:mt-3 md:mt-4 lg:mt-4 xl:mt-4 text-xs sm:text-lg md:text-xl lg:text-2xl xl:text-3xl   text-center font-medium">{item.text}</p>
-          </div>
-        ))}
+    <section className="py-24 px-6 lg:px-24 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16 animate-reveal">
+          <h2 className="text-3xl md:text-5xl font-outfit font-extrabold text-slate-900 mb-4">
+            Why Choose V&S?
+          </h2>
+          <div className="w-24 h-1.5 brand-gradient mx-auto rounded-full" />
+          <p className="mt-6 text-slate-600 font-inter text-lg max-w-2xl mx-auto">
+            We combine expert craftsmanship with innovative technology to deliver homes that are built for the future.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
+          {items.map((item, index) => (
+            <div 
+              key={index} 
+              className="flex flex-col items-center p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-brand-purple/30 hover:bg-white hover:shadow-xl hover:shadow-brand-purple/5 transition-all duration-300 group animate-reveal"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <div className="w-20 h-20 md:w-24 md:h-24 flex items-center justify-center mb-6 bg-white rounded-full shadow-sm group-hover:scale-110 transition-transform duration-500">
+                <img src={item.img} alt={item.text} className="w-12 h-12 md:w-16 md:h-16 object-contain" />
+              </div>
+              <p className="text-sm md:text-base font-outfit font-bold text-slate-800 text-center leading-tight">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
-    </>
+    </section>
   );
 };
