@@ -7,7 +7,7 @@ export default defineConfig({
     proxy: {
       // Proxy API requests to the backend server
       '/api': {
-        target: 'https://smart-home-integration.onrender.com',
+        target: 'https://smart-home-integration-backend.vercel.app/',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, '') // Optional: Adjust the path if needed
