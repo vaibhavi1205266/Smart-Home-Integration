@@ -143,7 +143,7 @@ import React, { useState } from "react";
 import { useUser } from "../context/UserContext";
 import { FaEye, FaEyeSlash, FaTimes } from "react-icons/fa";
 import { toast } from "react-hot-toast";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from "../config.js";
 
 const LoginModal = ({ isOpen, onClose, onSwitchToSignUp }) => {
   const [formData, setFormData] = useState({
